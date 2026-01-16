@@ -31,7 +31,7 @@ const budgetRanges = [
   "Not sure yet",
 ];
 
-const whatsappNumber = "+233XXXXXXXXX";
+const whatsappNumber = "+233256922789";
 
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);

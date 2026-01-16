@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_NUMBER = "+233XXXXXXXXX";
+const WHATSAPP_NUMBER = "+233256922789";
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi Desire Lens! I'd like to book a strategy call to discuss my project."
 );

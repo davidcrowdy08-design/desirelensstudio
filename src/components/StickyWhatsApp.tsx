@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-const whatsappNumber = "+233XXXXXXXXX";
+const whatsappNumber = "+233256922789";
 const whatsappMessage = "Hi! I'm interested in your services. I'd like to discuss my project.";
 
 export const StickyWhatsApp = () => {

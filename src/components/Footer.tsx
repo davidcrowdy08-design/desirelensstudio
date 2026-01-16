@@ -15,7 +15,7 @@ const socialLinks = [
   { name: "Twitter", icon: Twitter, href: "#" },
 ];
 
-const WHATSAPP_NUMBER = "+233XXXXXXXXX";
+const WHATSAPP_NUMBER = "+233256922789";
 
 export const Footer = () => {
   const scrollToSection = (href: string) => {

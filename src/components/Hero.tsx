@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-workspace.jpg";
 
 const WHATSAPP_NUMBER = "+233XXXXXXXXX";
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hi Desire Lens! I'm interested in discussing a project. Can we chat?"
+  "Hi Desire Lens! I'd like to book a strategy call to discuss my project."
 );
 
 export const Hero = () => {
@@ -16,7 +15,7 @@ export const Hero = () => {
     }
   };
 
-  const openWhatsApp = () => {
+  const openStrategyCall = () => {
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`,
       "_blank"
@@ -24,72 +23,71 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Luxury digital workspace"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40 dark:from-background/98 dark:via-background/90 dark:to-background/60" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-muted/30">
+      {/* Noise Overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
       {/* Content */}
-      <div className="container relative z-10 px-6 py-20 md:py-32">
-        <div className="max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-sm md:text-base font-medium text-primary mb-4 tracking-widest uppercase"
-          >
-            Digital Studio
-          </motion.p>
-
+      <div className="container relative z-10 px-4 sm:px-8 py-20 md:py-32">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6"
+            transition={{ 
+              duration: 0.7, 
+              ease: [0.4, 0, 0.2, 1] 
+            }}
+            className="font-heading text-[48px] md:text-[56px] lg:text-[72px] font-extrabold leading-[1.2] mb-6 tracking-tight"
           >
-            We Craft Digital Experiences That{" "}
-            <span className="text-primary">Elevate Brands</span>
+            Designing Digital Experiences That Build{" "}
+            <span className="text-primary">Trust & Growth</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
+            transition={{ 
+              duration: 0.7, 
+              delay: 0.1,
+              ease: [0.4, 0, 0.2, 1] 
+            }}
+            className="text-base md:text-lg lg:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
           >
-            Luxury websites, strategic social growth, and digital solutions
-            designed to turn visitors into loyal clients. Every project
-            impresses, converts, and scales.
+            Websites, systems, and AI-powered design for brands ready to scale.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
+            transition={{ 
+              duration: 0.7, 
+              delay: 0.2,
+              ease: [0.4, 0, 0.2, 1] 
+            }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button
               size="lg"
-              onClick={scrollToPortfolio}
-              className="group text-base px-8 py-6"
+              onClick={openStrategyCall}
+              className="group text-base px-8 py-6 transition-transform duration-300 hover:scale-[1.03]"
             >
-              View Portfolio
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Calendar className="mr-2 h-4 w-4" />
+              Book a Strategy Call
             </Button>
             <Button
-              variant="outline"
+              variant="ghost"
               size="lg"
-              onClick={openWhatsApp}
-              className="text-base px-8 py-6"
+              onClick={scrollToPortfolio}
+              className="group text-base px-8 py-6 relative overflow-hidden"
             >
-              <MessageCircle className="mr-2 h-4 w-4" />
-              Message on WhatsApp
+              <span className="relative z-10">View Work</span>
+              <ArrowRight className="ml-2 h-4 w-4 relative z-10 transition-transform group-hover:translate-x-1" />
+              <span className="absolute bottom-3 left-8 right-8 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Button>
           </motion.div>
         </div>
